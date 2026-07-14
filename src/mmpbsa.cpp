@@ -65,7 +65,7 @@
 #include "gromacs/fileio/confio.h"
 #include "gromacs/fileio/warninp.h"
 #include "gromacs/utility/exceptions.h"
-#include "gromacs/utility/vec.h"
+#include "gromacs/math/vec.h"
 
 using namespace gmx;
 
@@ -1113,6 +1113,7 @@ void AnalysisMMPBSA::buildNonBondedPairList()
 
     // list 1-4 atom pairs
     k = 0;
+    auto F_LJ14=InteractionFunction::LennardJones14;
     while ( k < localtop_->idef.il[F_LJ14].size() ) {
         ii = localtop_->idef.il[F_LJ14].iatoms[k+1];
         jj = localtop_->idef.il[F_LJ14].iatoms[k+2];
