@@ -65,7 +65,7 @@
 #include "gromacs/fileio/confio.h"
 #include "gromacs/fileio/warninp.h"
 #include "gromacs/utility/exceptions.h"
-#include "gromacs/math/vec.h"
+#include "gromacs/utility/vec.h"
 
 using namespace gmx;
 
