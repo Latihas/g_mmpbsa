@@ -49,7 +49,7 @@ cmake .. \
   -DCMAKE_C_FLAGS="-fpermissive" \
   -DCMAKE_CXX_FLAGS="-fpermissive"
 
-make
+make -j$(nproc)
 make install
 
 # Build and Install GROMACS
@@ -65,7 +65,7 @@ export GMX_SRC=${CWD}/external/gromacs
 cmake .. -DGMX_SIMD=NONE -DGMX_GPU=off -DGMXAPI=OFF -DGMX_INSTALL_LEGACY_API=on \
              -DGMX_FFT_LIBRARY=fftpack -DCMAKE_INSTALL_PREFIX=${GMX_PATH}
             
-make
+make -j$(nproc)
 make install
 
 # Build and install the package
