@@ -1276,7 +1276,7 @@ void AnalysisMMPBSA::vaccumMMFull ( rvec *x )
                 VdwRes[resB] += TempVdw;
             }
     }
-    
+    auto F_LJ14=InteractionFunction::LennardJones14;
     // Energy of previously listed 1-4 atom pairs        
     #pragma omp parallel for default(shared) reduction(+:sumEE[:3]) reduction(+:sumVdw[:3]) reduction(+:EERes[:nres]) reduction(+:VdwRes[:nres])
     for ( i=0; i<paramNonBond_.nr_14; i++ ) {
